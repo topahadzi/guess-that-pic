@@ -1,0 +1,206 @@
+/* importing google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.title{
+    padding: 10px;
+    padding-left: 25px;
+    text-align: center;
+    color: #fff;
+}
+
+.wlcm{
+    padding: 10px;
+    padding-left: 25px;
+    text-align: center;
+}
+
+div{
+    padding: 5px 15px;
+}
+
+canvas{
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    pointer-events: none;
+}
+
+body{
+    background-image: url('../img/bg-draw.png');
+
+}
+
+button{
+    font-size: 20px;
+    font-weight: 500;
+    color: #FF7668;
+    padding: 5px 10px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.mainContent{
+    display: flex;
+    flex-direction: row;
+}
+
+.drawBox.activeDraw,
+.roomLogBox.activeRoomLog,
+.selectionBox.activeSelection{
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/*
+.drawBox{
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+*/
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    background-color: #4CAF50; /* Green color for success notifications */
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.notification.show {
+    opacity: 1;
+}
+
+.notification .closeButton {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.notification.success {
+    background-color: #4CAF50;
+}
+
+.notification.error {
+    background-color: #D9534F; /* Red color for error notifications */
+}
+
+
+
+.drawBox{
+    background: #fff;
+    display: flex;
+    flex-direction: start;
+    align-items: center;
+    border-radius: 15px;
+}
+.roomLogBox{
+    background:#fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.selectionBox{
+    margin-top: 10px;
+    background:#fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.selectionBoxHeader, .roomLogBoxHeader{
+    padding: 0 30px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px 5px 0 0;
+}
+
+.selectionBoxHeader .title, .roomLogBoxHeader .title{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.selectionBox section{
+    padding: 25px 30px 20px 30px;
+    background: #fff;
+}
+
+.selectionBox section .optionList{
+    padding: 20px 0;
+    display: block;
+}
+
+.selectionBox section .optionList .option{
+    background: aliceblue;
+    border: 1px solid #f8b3ab;
+    border-radius: 5px;
+    padding: 8px 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+section .optionList .option:hover{
+    color: #FF7668;
+    background: #f8b3ab;
+    border-color: #f8b3ab;
+}
+
+section .optionList .option.chosen{
+    color: #155724;
+    background: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.selectionBox .selectionButton,
+.selectionBox .ansButton{
+    height: 40px;
+    padding: 0 13px;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #FF7668;
+    border-radius: 5px;
+    border: 1px solid #FF7668;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    float: right;
+}
+
+.selectionBox .selectionButton:hover,
+.selectionBox .ansButton:hover{
+    background: #FF7668;
+}
+
+.mainContent .drawBox .menus .clearButton,
+.mainContent .drawBox .menus .submitButton{
+    pointer-events: none;
+}

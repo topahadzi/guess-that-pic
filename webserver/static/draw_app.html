@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Draw Quiz</title>
+    <link rel="stylesheet" href="css/draw_app.css">
+</head>
+
+<body>
+    <div id="notification" class="notification">
+        <span id="notificationText"></span>
+        <button class="closeButton" onclick="closeNotification()">X</button>
+    </div>
+    <audio id="successSound" src="music/success.mp3"></audio>
+    <audio id="failSound" src="music/fail.mp3"></audio>
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="music/bg.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="container">
+        <h1 class="title">Guess That Pic</h1>
+
+        <div class="mainContent">
+            <div class="drawBox">
+                
+
+                <div class="menus">
+                    <div>
+                        <label for="brushPalette">Brush Color</label>
+                        <input type="color" id="brushPalette" value="#000000">
+                    </div>
+
+                    <div>
+                        <label for="brushSlider">Brush Size</label>
+                        <input type="range" min="1" max="50" value="5" id="brushSlider">
+                    </div>
+
+                    <div>
+                        <button type="button" id="clearButton" class="clearButton">Clear</button>
+                        <button type="button" id="submitButton" class="submitButton">Done</button>
+                        <a href="/">
+                            <button type="button" id="backButton" class="backButton">Back</button>
+                        </a>
+                    </div>
+                </div>
+                <canvas id="myCanvas" width="500" height="470"></canvas>
+            </div>
+
+            <div class="boxes">
+                <div class="roomLogBox">
+                    <header class="roomLogBoxHeader">
+                        <div class="wlcm" id="welcomeMess"></div>
+                        <div id="userScoreDisplay">User Score: 0</div>
+                        <div id="friendScoreDisplay">Friend's Score: 0</div>
+                    </header>
+                    <div class="roomLog" id="roomLog">
+                        Waiting for a friend to join...
+                    </div>
+                </div>
+
+                <div class="selectionBox">
+                    <section>
+                        <div class="optionList">
+                            <div class="option" id="option1">
+                                <span>-</span>
+                            </div>
+                            <div class="option" id="option2">
+                                <span>-</span>
+                            </div>
+                            <div class="option" id="option3">
+                                <span>-</span>
+                            </div>
+                            <div class="option" id="option4">
+                                <span>-</span>
+                            </div>
+                        </div>
+                    </section>
+                    <button class="selectionButton" id="selectionButton" style="visibility:hidden;">Submit</button>
+                    <button class="ansButton" id="ansButton" style="visibility:hidden;">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/draw_app.js"></script>
+    <script src="js/items.js"></script>
+</body>
+
+</html>

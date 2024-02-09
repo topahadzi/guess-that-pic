@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  webserver:
+    build:
+      context: .
+      dockerfile: ./webserver/Dockerfile
+    environment:
+      -  WEBSERVER_PORT=8000
+    expose:
+      - "8000"
+    ports:
+      - 8000:8000
+  websocket:
+    build:
+      context: .
+      dockerfile: ./ws-service/Dockerfile
+    environment:
+      - WEBSOCKET_PORT=8050
+    expose:
+      - "8050"
+    ports:
+      - 8050:8050

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Draw Quiz!</title>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('img/bg.png'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .joinForm {
+            text-align: center;
+            background: linear-gradient(to bottom, #FF706C, #FFA33F); /* Linear gradient background color */
+            color: white; /* Font color */
+            padding: 40px; /* Increase padding for larger size */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            width: 80%;
+            height: auto;
+            flex-direction: row; /* Display in a row to create two columns */
+            align-items: center;
+            justify-content: space-between; /* Add space between the columns */
+        }
+
+        .leftColumn,
+        .rightColumn {
+            width: 48%; /* Adjust the width of the columns */
+            position: relative;
+        }
+
+        .leftColumn:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin-top: 10px; /* Add margin to the top of the line */
+            margin-bottom: 10px; /* Add margin to the bottom of the line */
+        }
+
+        .rightColumn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 1px; /* Width of the vertical line */
+            background-color: white; /* Color of the vertical line */
+            content: "";
+        }
+
+        h1.title,
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: white; /* Font color for the titles */
+        }
+
+        img.logo {
+            width: 80%; /* Make the image fill its container */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: white; /* Font color */
+        }
+
+        input {
+            width: 100%; /* Make the input fields fill the container */
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .startButton {
+            width: 100%;
+            background-color: #E14B3A;
+            color: white; /* Font color */
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .startButton:hover {
+            background-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="joinForm">
+        <div class="leftColumn">
+            <h1 class="title">Join The Game</h1>
+            <form action="/room" method="GET">
+                    <label for="userName">Name</label>
+                    <input type="text" name="userName" id="userName" required>
+                    <label for="roomID">Room ID</label>
+                    <input type="text" name="roomID" id="roomID" required>
+                <button class="startButton" type="submit">Start</button>
+            </form>
+        </div>
+        <div class="rightColumn">
+            <img class="logo" src="img/logo.png" alt="Logo">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .summary-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .score {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .result {
+            font-size: 20px;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        #backToLobbyButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #e69693;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #backToLobbyButton:hover {
+            background-color: #D9534F;
+        }
+    </style>
+</head>
+<body>
+
+<div class="summary-container">
+    <h1>Game Summary</h1>
+    
+    <div class="score">
+        <p>User Score: <span id="userScoreSummary">0</span></p>
+        <p>Friend's Score: <span id="friendScoreSummary">0</span></p>
+    </div>
+
+    <div class="result" id="gameResult"></div>
+    <a href="/">
+        <button id="backToLobbyButton">Back to Lobby</button>
+    </a>
+    
+</div>
+
+<script>
+function getParameterByName(name, url) {
+  if (!url) url = window.location.href;
+  name = name.replace(/[\[\]]/g, '\\$&');
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+// Get userScore and friendScore from URL parameters
+const userScore = getParameterByName('userScore');
+const friendScore = getParameterByName('friendScore');
+
+    document.getElementById("userScoreSummary").textContent = userScore;
+    document.getElementById("friendScoreSummary").textContent = friendScore;
+
+    const gameResult = document.getElementById("gameResult");
+    const backToLobbyButton = document.getElementById("backToLobbyButton");
+
+    console.log("user score: " + userScore);
+    console.log("friend score: " + friendScore)
+    if (userScore > friendScore) {
+        gameResult.textContent = "Congratulations! You Win!";
+        gameResult.style.color = "#4caf50"; // Green color for win
+    } else if (userScore < friendScore) {
+        gameResult.textContent = "Sorry, You Lose!";
+        gameResult.style.color = "#f44336"; // Red color for lose
+    } else {
+        gameResult.textContent = "It's a Tie!";
+        gameResult.style.color = "#333"; // Default color
+    }
+
+</script>
+
+</body>
+</html>
